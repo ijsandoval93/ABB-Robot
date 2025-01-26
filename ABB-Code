@@ -1,1 +1,499 @@
+MODULE MainModule
+	CONST robtarget pOnPart1:=[[-472.58,76.42,-45.84],[0.00288951,-0.999982,-0.00292849,-0.0042884],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart5:=[[-117.00,76.05,-41.19],[0.00852926,-0.999959,-0.00267642,0.00158178],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart7:=[[-117.17,509.21,-43.57],[0.00292408,-0.999982,-0.00306816,-0.00423966],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart3:=[[-472.15,509.14,-44.09],[0.00288869,-0.999983,-0.00294277,-0.00416351],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart2:=[[-299.86,85.83,-43.99],[0.00285161,-0.999983,-0.00299217,-0.00411509],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart4:=[[-300.13,518.03,-45.03],[0.0029313,-0.999982,-0.00325747,-0.00409881],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart6:=[[55.67,87.73,-43.74],[0.00300733,-0.999987,0.000385014,-0.00414058],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart8:=[[55.55,517.86,-43.04],[0.00255839,0.999992,0.00114108,-0.00268846],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+  TASK PERS wobjdata wobj2:=[FALSE,TRUE,"",[[0,0,0],[1,0,0,0]],[[-433.454,-749.125,253.346],[0.678214,0.00179826,0.00213614,0.734859]]];
+	
+  CONST robtarget pOnPart1L:=[[-474.45,76.14,-41.10],[0.00234832,0.999997,-0.00115768,6.39165E-05],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart2L:=[[-302.92,87.29,-45.57],[0.00291101,0.999995,-0.000313182,0.000992787],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart3L:=[[-474.61,508.98,-41.06],[0.00244646,0.999996,-0.00151058,3.34968E-05],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart4L:=[[-300.69,519.79,-41.10],[0.00284669,0.999996,-0.000248009,0.000883004],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart5L:=[[-119.71,76.18,-41.24],[0.00244833,0.999996,-0.00142358,0.000100544],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart6L:=[[54.08,87.31,-41.96],[0.0029229,0.999995,-0.000195609,0.000902427],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart7L:=[[-118.53,509.12,-41.18],[0.00244183,0.999996,-0.00148905,-2.20476E-05],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart8L:=[[54.45,520.24,-41.28],[0.00290853,0.999995,-0.000322768,0.000882381],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    
+    CONST jointtarget jHome:=[[0,0,0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnRightUnloadStation:=[[55.80,533.30,-42.98],[0.00224055,0.999997,0.000822977,-0.000972507],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnLeftUnloadStation:=[[1233.71,-800.31,491.23],[0.00107638,0.700658,0.713493,-0.00231161],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	TASK PERS tooldata toolnew:=[TRUE,[[-53.1605,36.342,192.231],[1,0,0,0]],[1,[1,0,0],[1,0,0,0],0,0,0]];
+	TASK PERS wobjdata wobj1:=[FALSE,TRUE,"",[[0,0,0],[1,0,0,0]],[[-1058.19,785.524,252.974],[0.705101,-0.000485424,0.00114242,-0.709106]]];
+	
+    
+	CONST robtarget pHome:=[[625.17,0.11,897.86],[0.00144656,-6.87652E-05,-0.999999,-0.000143766],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  VAR robtarget current_pos;
+	VAR robtarget pMaintPosition:=[[398.36,-920.57,495.21],[0.014218,-0.558125,-0.829586,-0.00908673],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+  VAR robtarget pAboveLCart:=[[-406.36,-1005.37,485.37],[0.00256933,0.703844,0.710348,-0.00192515],[-2,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	VAR robtarget pAboveRCart:=[[-538.11,636.78,494.77],[0.00227772,-0.707074,0.707135,-0.000864759],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    
+  VAR shapedata HomeZone;
+  CONST pos HomeZonePoint:=[626.43,0.01,898.11]; 
+  VAR wzstationary WzHome;
+	TASK PERS wobjdata wobj3:=[FALSE,TRUE,"",[[-420.684,-782.944,253.686],[0.704422,0.000377922,0.000705566,0.70978]],[[0,0,0],[1,0,0,0]]];
+	TASK PERS wobjdata wobj4:=[FALSE,TRUE,"",[[0,0,0],[1,0,0,0]],[[0,0,0],[1,0,0,0]]];
+	TASK PERS wobjdata wobjLeftCart:=[FALSE,TRUE,"",[[-434.272,-782.348,253.666],[0.704026,0.000914343,0.00060463,0.710174]],[[11.17,-58.1216,7.95801],[0.999957,0.000648982,0.00344453,-0.00859799]]];
+	TASK PERS wobjdata wobjRightCart:=[FALSE,TRUE,"",[[-1084.93,784.704,248.173],[0.704998,0.00324422,0.00425239,-0.709189]],[[-10.3981,67.348,7.71468],[0.999941,-0.00324709,-0.00886539,0.00538809]]];
+    
+  CONST robtarget pOBC1PartPick:=[[1353.89,44.84,206.14],[0.000769849,0.000361638,1,-2.8004E-05],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pOBC2PartPick:=[[1350.11,40.64,221.22],[0.000779627,0.000434159,1,-2.80623E-06],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+!**********************************************************  
+!       This is the main program of the Load Robot
+!**********************************************************
+
+	PROC main()
+        VelSet 100, 1250;
+        Home;
+        IF DO_EN_AtHome=0 THEN
+        WZSphDef \Inside,HomeZone,HomeZonePoint,350;
+        WZDOSet\Stat,WzHome\Inside,HomeZone,DO_EN_AtHome,1;
+        ENDIF
+        
+       WHILE TRUE
+        do
+        VelSet 100, 1250;
+        
+    IF DO_EN_AtHome=0 Then 
+       Home;
+        !MoveJ pHome,v200,fine,toolnew;
+        !MoveJ pMaintPosition,v2000,fine,toolnew;
+        !MoveJ pHome,v2000,fine,toolnew;
+        !current_pos:= CRobT(toolnew,wobj0);
+        !current_pos:= Offs(current_pos,0,0,0,200);
+        !MoveJ pHome,v200,fine,toolnew;
+        ELSEIF DI_EN_MaintCmd=1 THEN
+            rMaintPosition;
+        RESET DO_EN_MaintInProc;
+        
+        ELSEIF DI_EN_DialNest_ReqPick=1 AND DI_EN_Tool1_Opened=1 THEN
+            Dial;
+        ELSEIF DI_EN_Tool1_Closed=1 OR (DI_EN_DryRun = 1 AND DI_EN_Tool1_Opened=0) THEN
+            LoadStation;
+        
+    ENDIF
+       ENDWHILE
+    ENDPROC
+    
+    PROC Dial()
+        IF DI_EN_PartType=0 THEN
+            Set DO_EN_MovingToDialZone;
+            MoveJ Offs(pOBC2PartPick,0,0,200),v3000,fine,toolnew;
+            MoveL pOBC2PartPick,v3000,fine,toolnew;
+            WaitRob \InPos;
+            Set DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Closed=1 OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+            Reset DO_EN_MovingToDialZone;
+            MoveL Offs(pOBC2PartPick,0,0,200),v3000,fine,toolnew;
+            MoveJ pHome,v3000,fine,toolnew;
+        
+        ELSEIF DI_EN_PartType=1 THEN
+            Set DO_EN_MovingToDialZone;
+            MoveJ Offs(pOBC1PartPick,0,0,200),v3000,fine,toolnew;
+            MoveL pOBC1PartPick,v3000,fine,toolnew;
+            WaitRob \InPos;
+            Set DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Closed=1 OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+            Reset DO_EN_MovingToDialZone;
+            MoveL Offs(pOBC1PartPick,0,0,200),v3000,fine,toolnew;
+            MoveJ pHome,v3000,fine,toolnew;
+        
+        ENDIF
+    ENDPROC
+    
+    
+!***********************************************************************************************************  
+!       This is the subroutine that takes the robot to the calibration state of 0 degrees on all axis
+!***********************************************************************************************************     
+    PROC goToSync()
+      
+        MoveAbsJ jHome,v200,fine,tool0;
+        STOP;
+    ENDPROC
+   
+    PROC rMaintPosition()
+        Set DO_EN_MaintInProc;
+        MoveJ pMaintPosition,v1000,fine,toolnew\WObj:=wobj0;
+        SET DO_EN_AtMaint;
+        WaitUntil DI_EN_MaintCmd=0;
+        RETURN;
+    ENDPROC 
+!**********************************************************************************  
+!       This is the subroutine that takes the robot back to the home position
+!**********************************************************************************     
+	PROC Home()
+        current_pos:= CRobT(\Tool:=toolnew\WObj:=wobj0);
+        RESET DO_EN_CamInPosition;
+        RESET DO_EN_MovingToLeftCartZone;
+        RESET DO_EN_MovingToRightCartZone;
+        RESET DO_EN_AtMaint;
+        Reset DO_EN_MovingToDialZone;
+        
+        IF DI_EN_Tool1_Opened = 1 THEN
+            reset DO_EN_Tool1_Reqclose;
+        ELSEIF DI_EN_Tool1_Closed = 1 THEN 
+            set DO_EN_Tool1_ReqClose;
+        ENDIF
+        IF SO_EN_InRightCartZone=0 THEN
+            IF DI_EN_HomeCmd = 1 THEN
+            current_pos:= Offs(current_pos,0,0,200);
+            MoveL current_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            ENDIF
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,z20,toolnew;
+        ELSEIF SO_EN_InLeftCartZone=0 THEN
+            IF DI_EN_HomeCmd = 1 THEN
+            current_pos:= Offs(current_pos,0,0,200);
+            MoveL current_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            ENDIF
+            MoveJ pAboveLCart, v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,z20,toolnew;
+        ELSEIF SO_EN_InDialZone=0 THEN
+            current_pos:= Offs(current_pos,0,0,200);
+            MoveL current_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            MoveJ pHome,v3000,z20,toolnew;
+        ELSEIF DO_EN_AtHome =0  THEN
+                !current_pos:= Offs(current_pos,0,0,50);
+                !MoveL current_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            MoveJ pHome, v3000, fine, toolnew;
+            current_pos:= pHome;
+        ENDIF
+    RETURN;
+	ENDPROC
+    
+!**********************************************************************************  
+!       This is the subroutine that takes the part from the Left Nest
+!**********************************************************************************  
+	PROC LoadStation()
+        
+        IF DI_EN_LCFixNest1_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart1L,0,0,200), v3000, z20, toolnew\WObj:=wobjLeftCart;
+            MoveL offs(pOnPart1L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+            MoveL pOnPart1L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart1L,0,0,200),v1000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart1L,0,-100,250),v1000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest2_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart2L,0,0,200), v3000, z20, toolnew\WObj:=wobjLeftCart;
+            MoveL offs(pOnPart2L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart2L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart2L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart2L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest3_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart3L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL Offs(pOnPart3L,0,0,15), v3000 , fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart3L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart3L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart3L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest4_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart4L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL offs(pOnPart4L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart4L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart4L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart4L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest5_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart5L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL Offs(pOnPart5L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart5L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart5L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart5L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest6_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart6L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL offs(pOnPart6L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart6L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart6L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart6L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest7_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart7L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL Offs(pOnPart7L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart7L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart7L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart7L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+            
+        elseIF DI_EN_LCFixNest8_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoLCZone=0 and DI_EN_URinLCZone=0;
+            Set DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart8L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+            MoveL offs(pOnPart8L,0,0,15), v3000, fine, toolnew\WObj:=wobjLeftCart;
+		    MoveL pOnPart8L, v100, fine, toolnew\WObj:=wobjLeftCart;
+            Reset DO_EN_MovingToLeftCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart8L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+            MoveJ Offs(pOnPart8L,0,-100,250),v3000,z5,toolnew\WObj:=wobjLeftCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveLCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;      
+		
+         elseif DI_EN_RCFixNest1_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart, v3000, z20, toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart1,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart1,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+            MoveL pOnPart1, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart1,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart1,0,-100,200),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+         
+        elseIF DI_EN_RCFixNest2_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart2,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart2,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart2, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart2,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart2,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest3_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart3,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart3,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart3, v200, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart3,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart3,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest4_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart4,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart4,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart4, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart4,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart4,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest5_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart5,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart5,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart5, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart5,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart5,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest6_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart6,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart6,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart6, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart6,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart6,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest7_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart7,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart7,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart7, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart7,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart7,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+        
+        elseIF DI_EN_RCFixNest8_ReqPlace = 1 THEN
+            WaitUntil DI_EN_URMovingtoRCZone=0 and DI_EN_URinRCZone=0;
+            Set DO_EN_MovingToRightCartZone;
+            MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ Offs(pOnPart8,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+            MoveL Offs(pOnPart8,0,0,15), v3000, fine, toolnew\WObj:=wobjRightCart;
+		    MoveL pOnPart8, v100, fine, toolnew\WObj:=wobjRightCart;
+            Reset DO_EN_MovingToRightCartZone;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WaitUntil DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnPart8,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+            MoveJ Offs(pOnPart8,0,-100,250),v3000,z5,toolnew\WObj:=wobjRightCart;
+            Set DO_EN_CamInPosition;
+            WaitUntil DI_EN_CamVisionReq=0;
+            RESET DO_EN_CamInPosition;
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            RETURN;
+         
+    ENDIF
+    RETURN;
+    ENDPROC
+ENDMODULE
 
