@@ -1,9 +1,9 @@
 # ABB-Robot
-Code for teaching an ABB robot
 
+In the Load and Unload files you will see the code that is used for two seperate robots and their functions.
 
-This code was used to teach ABB Robot for a project. All code was origingally designed by me.
+This code was used to teach ABB Robots for a project.
 
 The Load Code was used for picking and placing parts.
 
-The Unload Code was used for testing the product and theb pass or failing it.
+The Unload Code was used for testing the product and then checking whether the parts pass or fail.
