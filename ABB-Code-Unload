@@ -1,1 +1,1292 @@
+MODULE MainModule
+!**********************************************************  
+!       These are the variables for the program
+!**********************************************************
+	CONST robtarget pOnPart1:=[[-476.13,76.27,-42.22],[0.00392413,0.704497,-0.709693,0.00213877],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pOnPart3:=[[-474.56,507.92,-42.11],[0.00391051,0.711761,-0.702408,0.00208744],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart5:=[[-121.51,74.85,-45.26],[0.00394983,0.711842,-0.702326,0.00200641],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart7:=[[-118.86,508.17,-44.80],[0.00394008,0.706774,-0.707425,0.00204019],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+	
+  CONST robtarget pOnPart2:=[[-302.03,85.91,-42.99],[0.00395478,0.707519,-0.70668,0.00205713],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart4:=[[-301.43,518.31,-42.32],[0.00398476,0.705607,-0.708589,0.00204504],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart6:=[[54.21,86.23,-45.72],[0.00403457,0.707036,-0.707163,0.00210224],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart8:=[[55.15,518.35,-46.15],[0.00401023,0.708138,-0.70606,0.00204579],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+	
+  CONST robtarget pOnPart1L:=[[-471.62,75.69,-43.36],[0.00510437,-0.707385,0.706804,-0.00273825],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart3L:=[[-472.85,508.41,-44.69],[0.00512945,-0.707266,0.706924,-0.00273368],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart5L:=[[-116.31,76.45,-45.37],[0.0051718,-0.707302,0.706887,-0.00282555],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart7L:=[[-117.14,508.43,-45.81],[0.00441406,-0.703749,0.710412,-0.00572286],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    
+  CONST robtarget pOnPart2L:=[[-298.41,88.29,-44.14],[0.00513812,-0.707266,0.706923,-0.00287588],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pOnPart4L:=[[-300.04,519.58,-42.81],[0.00511108,-0.707369,0.706821,-0.00283853],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pOnPart6L:=[[56.57,87.48,-44.40],[0.00509306,-0.707337,0.706852,-0.0028295],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pOnPart8L:=[[55.42,519.82,-46.79],[0.00506979,-0.707491,0.706698,-0.00284295],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    
+  CONST jointtarget jHome:=[[0,0,0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
 
+  CONST robtarget pMaintPosition:=[[307.86,-744.78,286.73],[0.00226386,0.987178,0.159604,-0.00124256],[-1,-1,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pHome:=[[783.77,-1.39,924.84],[0.00291913,0.707243,0.706961,0.00230557],[0,-1,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    
+  CONST robtarget pPushButtonAboveLC2:=[[-432.97,86.49,431.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[1,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveLC4:=[[-432.97,519.58,431.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[1,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveLC6:=[[-76.4,85.10,431.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[1,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveLC8:=[[-76.4,519.90,431.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[1,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+   
+  CONST robtarget pPushButtonAboveRC2:=[[-432.97,86.49,433.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[-2,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveRC4:=[[-432.97,519.58,433.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[-2,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveRC6:=[[-76.4,85.10,433.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+  CONST robtarget pPushButtonAboveRC8:=[[-76.4,519.90,433.68],[0.708889,-0.00670803,-0.705245,-0.00781349],[-2,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+    CONST robtarget pPushButton1:=[[-433.24,636.55,244.75],[0.708889,-0.00670803,-0.705245,-0.00781349],[1,0,1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    VAR robtarget pcurrent_pos;
+    VAR wztemporary WzHome;
+    
+!*************************************************************************************
+!       World Zone variables for Unload Robot at Unload Stations and Conveyor
+!*************************************************************************************
+
+    VAR shapedata Zone1;
+    CONST pos Zone1point1:= [574.67,744.82,8.65];
+    CONST pos Zone1point2:= [1274.22,-904.20,513.44];
+
+!**************************************************************************    
+!       World Zone variables for Unload Robot at Home Position
+!************************************************************************** 
+    
+    VAR shapedata HomeZone;
+    CONST pos HomeZonePoint:=[568.00,-1.33,898.00];
+
+!**************************************************************************
+!       World Zone variables for Unload Robot at Maintance Position
+!**************************************************************************  
+
+    VAR shapedata MaintZone;
+    CONST pos MaintPoint:= [307.86,-744.48,286.73];
+	CONST robtarget pAboveLCart:=[[-320.50,612.54,569.77],[0.000569777,0.00231688,0.999982,-0.00543785],[1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget pAboveRCart:=[[-422.34,-579.47,595.20],[0.00424863,0.999979,0.0038212,0.00305667],[-2,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+    TASK PERS tooldata Magnetictool:=[TRUE,[[0,0,0],[1,0,0,0]],[1,[0,0,0],[1,0,0,0],0,0,0]];
+    TASK PERS wobjdata wobjLeftCart:=[FALSE,TRUE,"",[[-1047.66,723.097,253.259],[0.704555,-0.00197659,-0.000967511,-0.709646]],[[0,0,0],[1,0,0,0]]];
+    TASK PERS wobjdata wobjRightCart:=[FALSE,TRUE,"",[[-478.462,-731.12,261.514],[0.704137,-0.00035719,-0.0019167,0.710061]],[[0,0,0],[1,0,0,0]]];
+    TASK PERS wobjdata wobj2:=[FALSE,TRUE,"",[[-366.567,1280.31,259.159],[0.000791389,-0.709723,0.704472,0.00336485]],[[-361.482,739.517,255.595],[0.999986,0.00226767,0.00180158,0.00440191]]];
+
+    CONST robtarget pMagneticPushbuttonLC1:=[[-605.03,76.75,433.68],[9.36755E-05,-0.703894,0.000405566,0.710305],[1,0,-1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonLC3:=[[-605.03,510.05,433.68],[0.000155079,-0.703928,0.000507925,0.710271],[1,0,-1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonLC5:=[[-248.88,76.72,433.63],[0.00142795,-0.704018,-0.000818286,0.71018],[1,0,-1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonLC7:=[[-246.67,510.05,433.68],[7.82554E-05,-0.703957,0.000491804,0.710242],[1,0,-1,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+    CONST robtarget pMagneticPushbuttonRC1:=[[-605.03,76.75,433.68],[9.36755E-05,-0.703894,0.000405566,0.710305],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonRC3:=[[-602.74,510.05,433.68],[0.000155079,-0.703928,0.000507925,0.710271],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonRC5:=[[-248.92,76.75,433.68],[1.27131E-05,-0.704,0.000604092,0.7102],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pMagneticPushbuttonRC7:=[[-246.67,510.05,433.68],[7.82554E-05,-0.703957,0.000491804,0.710242],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+    CONST robtarget pOnConveyor:=[[1003.21,364.75,258.11],[0.00601198,0.217649,0.976005,0.00271559],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pOBC1RightUnload:=[[1201.40,-229.41,490.92],[0.00364883,0.702955,0.711204,0.00550843],[-1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pOBC1LeftUnload:=[[1212.41,-828.07,493.77],[0.000416912,0.698396,0.71571,-0.00131614],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];	
+    CONST robtarget pOBC2RightUnload:=[[1190.80,-233.79,495.22],[0.00359736,0.701703,0.71244,0.00547535],[-1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pOBC2LeftUnload:=[[1202.75,-829.24,498.15],[0.000511444,0.699711,0.714424,-0.00165052],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];	
+	
+    VAR num nOBC1;
+    VAR num nOBC2;
+    PROC main()
+                    VelSet 100, 1500;
+                    rHome;
+                    IF DO_EN_AtHome=0 THEN
+                    WZSphDef \Inside,HomeZone,HomeZonePoint,350;
+                    WZDOSet\Temp,WzHome\Inside,HomeZone,DO_EN_AtHome,1;
+                    ENDIF
+!***********************************************************************  
+!    This is the beginning of the main program of the Unload Robot
+!***********************************************************************
+ 
+        !**********************************************************  
+        !               Unload Station World Zone 
+        !**********************************************************  
+
+        WZBoxDef \Inside,Zone1,Zone1point1,Zone1point2;
+    
+        !**********************************************************  
+        !                Home Position World Zone
+        !**********************************************************  
+       
+        WZSphDef \Inside,HomeZone,HomeZonePoint,250;
+       
+        !**********************************************************  
+        !                Maintance Position World Zone
+        !**********************************************************  
+       
+       WZSphDef \Inside,MaintZone,MaintPoint,250;
+     
+        !*****************************************************************  
+        !    This is the start of the main program of the Unload Robot
+        !***************************************************************** 
+       
+        WHILE TRUE
+       DO
+      
+        VelSet 100, 1500;
+        
+        IF DO_EN_AtHome=0 THEN
+        rHome;
+	    RESET DO_EN_HomeInProc;
+        
+        ELSEIF DI_EN_MaintCmd=1 THEN
+            rMaintPosition;
+        RESET DO_EN_MaintInProc;
+        
+        ELSEIF (DI_EN_Tool1_Closed=1 AND DO_EN_OBC1=1) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0) THEN
+        rOBC1Unloadstation;
+        
+        ELSEIF (DI_EN_Tool1_Closed=1 AND DO_EN_OBC2=1) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0) THEN
+        rOBC2Unloadstation;
+        
+        ELSEIF (DI_EN_Tool1_Closed=1 AND DO_EN_OBC2=0 AND DO_EN_OBC1=0) THEN
+        rRejectUnknownPart;
+        
+        ENDIF
+        
+        IF DI_EN_Tool1_Opened=1 THEN
+        rLeftRightCarts;
+        ENDIF
+        
+    
+    ENDWHILE
+	RETURN;
+    ENDPROC
+    
+!***********************************************************************************************************  
+!       This is the subroutine that takes the robot to the calibration state of 0 degrees on all axis
+!***********************************************************************************************************     
+    
+    PROC rgoToSync()
+        MoveAbsJ jHome, v200, fine, tool0;
+        STOP;
+    RETURN;
+    ENDPROC
+    
+    
+    PROC rMaintPosition()
+        Set DO_EN_MaintInProc;
+        MoveJ pMaintPosition,v1000,fine,toolnew\WObj:=wobj0;
+        SET DO_EN_AtMaint;
+        WaitUntil DI_EN_MaintCmd=0;
+        RETURN;
+    ENDPROC
+    
+!**********************************************************************************  
+!       This is the subroutine that takes the robot back to the home position
+!**********************************************************************************     
+	
+    PROC rHome()
+        SET DO_EN_HomeInProc;
+        RESET DO_EN_MovingToLeftCartZone;
+        RESET DO_EN_MovingToRightCartZone;
+        RESET DO_EN_Tool2_ReqExtend;
+        RESET DO_EN_Tool3_ReqExtend;
+        RESET DO_EN_Tool4_ReqExtend;
+        RESET DO_EN_AtMaint;
+        
+		pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobj0);
+        IF DI_EN_Tool1_Opened=1 THEN
+            RESET DO_EN_OBC1;
+            RESET DO_EN_OBC2;
+        ENDIF
+        
+        IF DI_EN_Tool1_Opened = 1 THEN
+            reset DO_EN_Tool1_Reqclose;
+        ELSEIF DI_EN_Tool1_Closed = 1 THEN 
+            set DO_EN_Tool1_ReqClose;
+        ENDIF
+        IF SO_EN_InRightCartZone=0 THEN
+            !IF DI_EN_HomeCmd = 1 THEN
+            pcurrent_pos:= Offs(pcurrent_pos,0,0,200);
+            MoveL pcurrent_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            !ENDIF
+            MoveJ pAboveRCart, v3000, z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF SO_EN_InLeftCartZone=0 THEN
+            !IF DI_EN_HomeCmd = 1 THEN
+            pcurrent_pos:= Offs(pcurrent_pos,0,0,200);
+            MoveL pcurrent_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            !ENDIF
+            MoveJ pAboveLCart, v3000,z20,toolnew\WObj:=wobj0;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF SO_EN_InUnloadZone=0 THEN
+            !IF DI_EN_HomeCmd = 1 THEN
+            pcurrent_pos:= Offs(pcurrent_pos,0,0,300);
+            MoveL pcurrent_pos,v3000,fine,toolnew\Wobj:=wobj0;
+            !ENDIF
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF DO_EN_AtHome =0  THEN
+                !current_pos:= Offs(current_pos,0,0,50);
+                !MoveL current_pos,v3000,fine,toolnew\Wobj:=wobj0;
+                MoveJ pHome,v3000,fine,toolnew;
+                pcurrent_pos:= pHome;
+        ENDIF
+    
+    RETURN;
+	ENDPROC
+    
+!**********************************************  
+!       This is the Left Cart subroutine 
+!********************************************** 
+	
+    PROC rLeftRightCarts()
+		
+!**********************************************************************************  
+!   This is the part of the subroutine that tests the part from the Left Cart
+!**********************************************************************************         
+ 
+!**********************************************************************************  
+!    This is the part of the subroutine that takes the part from the Left Cart
+!**********************************************************************************             
+
+
+
+        IF DI_EN_LCFixNest1_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pMagneticPushbuttonLC1,60,0,0),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                        MoveJ Offs(pMagneticPushbuttonLC1,0,0,-189),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveJ Offs(pMagneticPushbuttonLC1,60,0,0),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart1L,60,0,200), v3000, z20,toolnew\WObj:=wobjLeftCart;
+                MoveJ Offs(pOnPart1L,0,0,50), v3000, z20,toolnew\WObj:=wobjLeftCart;
+                MoveL pOnPart1L, v3000, fine, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest1_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart1L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+
+
+                
+!***************************************************************************************************************************                
+    
+        
+        ELSEIF DI_EN_LCFixNest2_ReqPick= 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveLC2,v3000,fine,toolnew\WObj:=wobjLeftCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                     IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveLC2,0,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC2,0,117.17,-187),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC2,0,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveLC2,38,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pPushButtonAboveLC2,38,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC2,38,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveLC2,0,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC2,0,-43,-188),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC2,0,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveLC2,38,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC2,38,-43,-188),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC2,38,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+    
+                    ENDIF
+                ENDWHILE 
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjLeftCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjLeftCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart2L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveL Offs(pOnPart2L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart2L, v3000, fine, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest2_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart2L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+        
+                
+                
+!***************************************************************************************************************************           
+    
+        
+        ELSEIF DI_EN_LCFixNest3_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pMagneticPushbuttonLC3,60,0,0),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pMagneticPushbuttonLC3,0,0,-189),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pMagneticPushbuttonLC3,60,0,0),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart3L,60,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveJ Offs(pOnPart3L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart3L, v3000, z50, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest3_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart3L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+        
+                
+                
+ !***************************************************************************************************************************                 
+   
+        
+        ELSEIF DI_EN_LCFixNest4_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveLC4,v3000,fine,toolnew\WObj:=wobjLeftCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                     IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveLC4,0,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC4,0,117.17,-187),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC4,0,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveLC4,38,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pPushButtonAboveLC4,38,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC4,38,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveLC4,0,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC4,0,-43,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC4,0,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveLC4,38,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC4,38,-43,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC4,38,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjLeftCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjLeftCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart4L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveL Offs(pOnPart4L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart4L, v3000, fine, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest4_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart4L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+                
+                
+!***************************************************************************************************************************                
+    
+        
+        ELSEIF DI_EN_LCFixNest5_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonLC5,v3000,z20,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pMagneticPushbuttonLC5,0,0,-190.5),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonLC5,v3000,fine,toolnew\WObj:=wobjLeftCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart5L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveL Offs(pOnPart5L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart5L, v3000, z50, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest5_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart5L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+
+                
+                
+ !***************************************************************************************************************************                 
+  
+        
+        ELSEIF DI_EN_LCFixNest6_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveLC6,v3000,fine,toolnew\WObj:=wobjLeftCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                     IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveLC6,0,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC6,0,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC6,0,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveLC6,38,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pPushButtonAboveLC6,38,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC6,38,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveLC6,0,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC6,0,-43,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC6,0,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveLC6,38,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC6,38,-43,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC6,38,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                    
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjLeftCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjLeftCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart6L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveL Offs(pOnPart6L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart6L, v3000, fine, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest6_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart6L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+        
+                
+                
+ !***************************************************************************************************************************                 
+  
+        
+        ELSEIF DI_EN_LCFixNest7_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+                SET DO_EN_MovingToLeftCartZone;
+                MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                    RESET DO_EN_MovingToLeftCartZone;
+                ENDIF
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonLC7,v3000,z20,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pMagneticPushbuttonLC7,0,0,-190.75),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonLC7,v3000,fine,toolnew\WObj:=wobjLeftCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart7L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveJ Offs(pOnPart7L,0,0,50), v3000, z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart7L, v3000, z50, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest7_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart7L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+
+                
+                
+ !***************************************************************************************************************************                 
+
+        
+        ELSEIF DI_EN_LCFixNest8_ReqPick = 1 AND (LRMovingToLCZone=0 AND LRInLCZone=0) THEN
+            SET DO_EN_MovingToLeftCartZone;
+            MoveJ pAboveLCart,v3000,z20,toolnew\WObj:=wobj0;
+            
+            IF SO_EN_InLeftCartZone=1 AND DO_EN_MovingToLeftCartZone=1 THEN
+                RESET DO_EN_MovingToLeftCartZone;
+            ENDIF
+            
+            IF GI_EN_ButtonPressState <> 0 THEN
+                MoveJ pPushButtonAboveLC8,v3000,fine,toolnew\WObj:=wobjLeftCart;
+            WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveLC8,0,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC8,0,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC8,0,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveLC8,38,117.17,-183),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        MoveL Offs(pPushButtonAboveLC8,38,117.17,-188.25),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC8,38,117.17,-183),v50,fine,toolnew\WObj:=wobjLeftCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveLC8,0,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC8,0,-43,-188),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC8,0,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveLC8,38,-43,-184),v500,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveLC8,38,-43,-188),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveLC8,38,-43,-184),v50,fine,toolnew\WObj:=wobjLeftCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+               
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjLeftCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjLeftCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart8L,0,0,200),v3000,z20,toolnew\WObj:=wobjLeftCart;
+                MoveL Offs(pOnPart8L,0,0,50),v3000,z20,toolnew\WObj:=wobjLeftCart;
+		        MoveL pOnPart8L, v3000, fine, toolnew\WObj:=wobjLeftCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_LCFixNest8_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart8L,0,0,200),v3000,fine,toolnew\WObj:=wobjLeftCart;
+                
+            
+            
+            
+                   
+!**********************************************************************************  
+!   This is the part of the subroutine that tests the part from the Right Cart
+!********************************************************************************** 
+       
+!**********************************************************************************  
+!    This is the part of the subroutine that takes the part from the Right Cart
+!********************************************************************************** 
+        
+
+
+        ELSEIF DI_EN_RCFixNest1_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart, v3000, z20, toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                 WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonRC1,v3000,z20,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pMagneticPushbuttonRC1,0,0,-190),v3000,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonRC1,v3000,fine,toolnew\WObj:=wobjRightCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart1,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart1,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart1, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest1_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart1,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+
+                
+                
+ !***************************************************************************************************************************     
+       
+        
+        ELSEIF DI_EN_RCFixNest2_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveRC2,v3000,fine,toolnew\WObj:=wobjRightCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveRC2,0,117.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC2,0,117.17,-188),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC2,0,117.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveRC2,38,117.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pPushButtonAboveRC2,38,117.17,-187),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC2,38,117.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveRC2,0,-43,-184),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC2,0,-43,-188.25),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC2,0,-43,-184),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveRC2,38,-43,-184),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC2,38,-43,-188.25),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC2,38,-43,-184),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjRightCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjRightCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart2,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart2,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart2, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest2_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart2,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+        
+                
+                
+ !***************************************************************************************************************************     
+     
+        
+        ELSEIF DI_EN_RCFixNest3_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart, v3000, z20, toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                 WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonRC3,v3000,z20,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pMagneticPushbuttonRC3,0,0,-188),v3000,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonRC3,v3000,fine,toolnew\WObj:=wobjRightCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart3,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart3,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart3, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest3_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart3,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+ 
+                
+                
+ !***************************************************************************************************************************     
+ 
+        
+        ELSEIF DI_EN_RCFixNest4_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveRC4,v3000,fine,toolnew\WObj:=wobjRightCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveRC4,0,117.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC4,0,117.17,-188),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC4,0,117.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveRC4,38,117.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pPushButtonAboveRC4,38,117.17,-188),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC4,38,117.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveRC4,0,-43,-184),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC4,0,-43,-188.25),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC4,0,-43,-184),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveRC4,38,-43,-184),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC4,38,-43,-188.25),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC4,38,-43,-184),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                    
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjRightCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjRightCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart4,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart4,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart4, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1  AND DI_EN_RCFixNest4_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart4,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+
+                
+                
+ !***************************************************************************************************************************     
+ 
+        
+        ELSEIF DI_EN_RCFixNest5_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart, v3000, z20, toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                 
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonRC5,v3000,z20,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pMagneticPushbuttonRC5,0,0,-190.5),v3000,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonRC5,v3000,fine,toolnew\WObj:=wobjRightCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart5,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart5,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart5, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest5_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart5,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+
+                
+                
+ !***************************************************************************************************************************     
+   
+        
+        ELSEIF DI_EN_RCFixNest6_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveRC6,v3000,fine,toolnew\WObj:=wobjRightCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                        IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveRC6,0,114.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC6,0,114.17,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC6,0,114.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveRC6,38,114.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pPushButtonAboveRC6,38,114.17,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC6,38,114.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveRC6,0,-43,-186),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC6,0,-43,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC6,0,-43,-186),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveRC6,38,-43,-186),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC6,38,-43,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC6,38,-43,-186),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjRightCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjRightCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart6,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart6,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart6, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest6_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart6,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+
+                
+                
+ !***************************************************************************************************************************             
+  
+        
+        ELSEIF DI_EN_RCFixNest7_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart, v3000, z20, toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                 
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ pMagneticPushbuttonRC7,v3000,z20,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pMagneticPushbuttonRC7,0,0,-190),v3000,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL pMagneticPushbuttonRC7,v3000,fine,toolnew\WObj:=wobjRightCart;
+                    ENDIF
+                ENDWHILE
+                
+                MoveJ Offs(pOnPart7,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart7,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart7, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest7_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC2;
+                MoveL Offs(pOnPart7,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+  
+                
+                
+ !***************************************************************************************************************************             
+  
+        
+        ELSEIF DI_EN_RCFixNest8_ReqPick = 1 AND (LRMovingToRCZone=0 AND LRInRCZone=0) THEN
+                SET DO_EN_MovingToRightCartZone;
+                MoveJ pAboveRCart,v3000,z20,toolnew\WObj:=wobj0;
+                
+                IF SO_EN_InRightCartZone=1 AND DO_EN_MovingToRightCartZone=1 THEN
+                    RESET DO_EN_MovingToRightCartZone;
+                ENDIF
+                
+                IF GI_EN_ButtonPressState <> 0 THEN
+                    MoveJ pPushButtonAboveRC8,v3000,fine,toolnew\WObj:=wobjRightCart;
+                WHILE GI_EN_ButtonPressState <> 0 DO
+                
+                    IF GI_EN_ButtonPressState=1 THEN
+                        MoveJ Offs(pPushButtonAboveRC8,0,114.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC8,0,114.17,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 1;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC8,0,114.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool4_Returned=1;
+        
+                    ELSEIF GI_EN_ButtonPressState=2 THEN
+                        MoveJ Offs(pPushButtonAboveRC8,38,114.17,-183),v500,fine,toolnew\WObj:=wobjRightCart;
+                        MoveL Offs(pPushButtonAboveRC8,38,114.17,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 2;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC8,38,114.17,-183),v50,fine,toolnew\WObj:=wobjRightCart;
+        
+        
+                    ELSEIF GI_EN_ButtonPressState=3 THEN
+                        MoveJ Offs(pPushButtonAboveRC8,0,-45,-186),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool3_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC8,0,-45,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 3;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC8,0,-45,-186),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool3_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool3_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+        
+                    ELSEIF GI_EN_ButtonPressState=4 THEN
+                        MoveJ Offs(pPushButtonAboveRC8,38,-45,-186),v500,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_Tool2_ReqExtend;
+                        SET DO_EN_Tool4_ReqExtend;
+                        WAITUNTIL DI_EN_Tool2_Extended=1 AND DI_EN_Tool4_Extended=1;
+                        MoveL Offs(pPushButtonAboveRC8,38,-45,-190),v50,fine,toolnew\WObj:=wobjRightCart;
+                        SET DO_EN_BPInPosition;
+                        WaitUntil GI_EN_ButtonPressState <> 4;
+                        RESET DO_EN_BPInPosition;
+                        MoveL Offs(pPushButtonAboveRC8,38,-45,-186),v50,fine,toolnew\WObj:=wobjRightCart;
+                        RESET DO_EN_Tool2_ReqExtend;
+                        RESET DO_EN_Tool4_ReqExtend;
+                        WaitUntil DI_EN_Tool2_Returned=1 AND DI_EN_Tool4_Returned=1;
+                        
+                    ENDIF
+                ENDWHILE
+                    pcurrent_pos:= CRobT(\Tool:=toolnew\WObj:=wobjRightCart);
+                    MoveL Offs(pcurrent_pos,0,0,150),v3000,fine,toolnew\Wobj:=wobjRightCart;
+                ENDIF
+                
+                MoveJ Offs(pOnPart8,0,0,200),v3000,z20,toolnew\WObj:=wobjRightCart;
+                MoveL Offs(pOnPart8,0,0,50), v3000, z20,toolnew\WObj:=wobjRightCart;
+                MoveL pOnPart8, v3000, fine, toolnew\WObj:=wobjRightCart;
+                WaitRob \InPos;
+                Set DO_EN_Tool1_ReqClose;
+                WAITUNTIL (DI_EN_Tool1_Closed=1 AND DI_EN_RCFixNest8_ReqPick=0) OR (DI_EN_DryRun=1 AND DI_EN_Tool1_Opened=0);
+                SET DO_EN_OBC1;
+                MoveL Offs(pOnPart8,0,0,200),v3000,fine,toolnew\WObj:=wobjRightCart;
+                
+            
+        ENDIF
+	RETURN;
+    ENDPROC
+    
+    
+    
+!**********************************************************************************  
+!       This is the subroutine that takes the part to the unload station
+!**********************************************************************************    
+	
+
+    
+
+    PROC rOBC1Unloadstation()
+		
+        IF DI_EN_RightUnload_RdyForPlace=1 THEN
+            MoveJ Offs(pOBC1RightUnload,0,0,200), v3000, fine, toolnew;
+            MoveL Offs(pOBC1RightUnload,0,0,50), v3000, fine, toolnew;
+            MoveL pOBC1RightUnload,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOBC1RightUnload,0,0,200),v3000,fine,toolnew;
+            RESET DO_EN_OBC1;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF DI_EN_LeftUnload_RdyForPlace=1 THEN
+            MoveJ Offs(pOBC1LeftUnload,0,0,200),v3000,fine,toolnew;
+            MoveL Offs(pOBC1LeftUnload,0,0,50),v3000,fine,toolnew;
+            MoveL pOBC1LeftUnload,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveJ Offs(pOBC1LeftUnload,0,0,200),v3000,fine,toolnew; 
+            RESET DO_EN_OBC1;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF DI_EN_RejConv_RdyForPlace=1 THEN
+            MoveJ Offs(pOnConveyor,0,0,600), v3000, z20, toolnew;
+            MoveL Offs(pOnConveyor,0,0,50), v3000, z20, toolnew;
+            MoveL pOnConveyor,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnConveyor,0,0,600),v3000,fine,toolnew;
+            RESET DO_EN_OBC1;
+            MoveJ pHome,v3000,fine,toolnew;
+        
+        ENDIF
+    
+    
+    RETURN;
+	ENDPROC
+    
+    PROC rOBC2Unloadstation()
+		
+        IF DI_EN_RightUnload_RdyForPlace=1  THEN
+            MoveJ Offs(pOBC2RightUnload,0,0,200), v3000, fine, toolnew;
+            MoveL Offs(pOBC2RightUnload,0,0,50), v3000, fine, toolnew;
+            MoveL pOBC2RightUnload,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOBC2RightUnload,0,0,200),v3000,fine,toolnew;
+            RESET DO_EN_OBC2;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF DI_EN_LeftUnload_RdyForPlace=1 THEN
+            MoveJ Offs(pOBC2LeftUnload,0,0,200), v3000, fine, toolnew;
+            MoveL Offs(pOBC2LeftUnload,0,0,50),v3000,fine,toolnew;
+            MoveL pOBC2LeftUnload,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveJ Offs(pOBC2LeftUnload,0,0,200),v3000,fine,toolnew;
+            RESET DO_EN_OBC2;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        ELSEIF DI_EN_RejConv_RdyForPlace=1 THEN
+            MoveJ Offs(pOnConveyor,0,0,600), v3000, z20, toolnew;
+            MoveL Offs(pOnConveyor,0,0,50), v3000, z5, toolnew;
+            MoveL pOnConveyor,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnConveyor,0,0,600),v3000,fine,toolnew;
+            RESET DO_EN_OBC2;
+            MoveJ pHome,v3000,fine,toolnew;
+            
+        
+        ENDIF
+    
+    
+    RETURN;
+	ENDPROC
+    
+    
+    PROC rRejectUnknownPart()
+        IF DI_EN_RightUnload_RdyForPlace=1 OR DI_EN_LeftUnload_RdyForPlace=1 OR DI_EN_RejConv_RdyForPlace=1 THEN
+            MoveJ Offs(pOnConveyor,0,0,600), v3000, z20, toolnew;
+            MoveL Offs(pOnConveyor,0,0,50), v3000, z5, toolnew;
+            MoveL pOnConveyor,v100,fine,toolnew;
+            WaitTime 0.3;
+            Reset DO_EN_Tool1_ReqClose;
+            WAITUNTIL DI_EN_Tool1_Opened=1;
+            MoveL Offs(pOnConveyor,0,0,600),v3000,fine,toolnew;
+            RESET DO_EN_OBC2;
+            MoveJ pHome,v3000,fine,toolnew;
+        ENDIF
+    RETURN;
+    ENDPROC
+    
+        
+ENDMODULE
