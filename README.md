@@ -1,11 +1,11 @@
 # ABB-Robot
 
-In the Load and Unload files you will see the code that is used for two seperate robots and their functions.
+The code in this respository was used to teach two ABB Robots that coinside in a closed cell.
 
-This code was used to teach ABB Robots for a project.
+Each file represents the code that was written to each robot in the cell to perform its functions.
 
-The Load Code was used for picking and placing parts.
+The Load file was used for picking and placing the components after the operator was finished and it was in a safe state.
 
-The Unload Code was used for testing the product and then checking whether the parts pass or fail.
+The Unload file was used for testing the product and checking whether the product either passed or failed its inspection.
 
 ***NOTE: This code has been finalized and no modifications will be taken place. 5/1/23.
