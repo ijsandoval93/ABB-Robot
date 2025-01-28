@@ -8,4 +8,4 @@ The Load file was used for picking and placing the components after the operator
 
 The Unload file was used for testing the product and checking whether the product either passed or failed its inspection.
 
-***NOTE: This code has been finalized and no modifications will be taken place. 5/1/23.
+*** NOTE: This code has been finalized and no further modifications will be implemented. 5/1/23. ***
