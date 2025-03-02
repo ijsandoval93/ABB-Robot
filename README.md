@@ -8,6 +8,8 @@ The Load file was used for picking and placing the components after the operator
 
 The Unload file was used for testing the product and checking whether the product either passed or failed its inspection.
 
-ABB robots use Rapid language in their program RobotStudio to be taught.
+ABB robots use RAPID language.
+
+This following code was written in their program RobotStudio.
 
 *** NOTE: This code has been finalized and no further modifications will be implemented. 5/1/23. ***
